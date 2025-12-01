@@ -1,0 +1,48 @@
+﻿@model FitnessBookingSystem.Models.Trainer
+
+@{
+    ViewData["Title"] = "Trainer Details";
+}
+
+<h1>Trainer Details</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-sm-3">First Name</dt>
+            <dd class="col-sm-9">@Model.FirstName</dd>
+
+            <dt class="col-sm-3">Last Name</dt>
+            <dd class="col-sm-9">@Model.LastName</dd>
+
+            <dt class="col-sm-3">Specialization</dt>
+            <dd class="col-sm-9">@Model.Specialization</dd>
+
+            <dt class="col-sm-3">Experience Years</dt>
+            <dd class="col-sm-9">@Model.ExperienceYears</dd>
+
+            <dt class="col-sm-3">Rating</dt>
+            <dd class="col-sm-9">@Model.Rating</dd>
+
+            <dt class="col-sm-3">Created At</dt>
+            <dd class="col-sm-9">@Model.CreatedAt</dd>
+        </dl>
+    </div>
+
+    <div class="col-md-4">
+        <h5>Photo</h5>
+        @if (!string.IsNullOrEmpty(Model.PhotoPath))
+        {
+            <img src="@Model.PhotoPath"
+                 class="img-fluid"
+                 style="max-width:100%; border:1px solid #ccc; padding:5px;" />
+        }
+        else
+        {
+            <p>No photo uploaded</p>
+        }
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Back to List</a>
+

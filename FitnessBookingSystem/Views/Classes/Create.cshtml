@@ -1,0 +1,51 @@
+﻿@model FitnessBookingSystem.Models.Class
+
+<h1>Create Class</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group mb-2">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" maxlength="50" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" maxlength="200" rows="3" style="word-wrap: break-word;"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="DurationMinutes"></label>
+        <input asp-for="DurationMinutes" class="form-control" type="number" min="0" />
+        <span asp-validation-for="DurationMinutes" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-2">
+        <label asp-for="Capacity"></label>
+        <input asp-for="Capacity" class="form-control" type="number" min="0" />
+        <span asp-validation-for="Capacity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TrainerId" class="control-label"></label>
+        <select asp-for="TrainerId" class="form-control" asp-items="ViewBag.TrainerId">
+            <option value="">-- Select Trainer --</option>
+        </select>
+        <span asp-validation-for="TrainerId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StartTime" class="control-label"></label>
+        <input asp-for="StartTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+
+    <input type="submit" class="btn btn-success mt-2" value="Create" />
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
